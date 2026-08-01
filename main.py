@@ -1,9 +1,9 @@
 from api import obtener_tiendas, obtener_juegos_gratis, enviar_discord
-from storage import importar_json, guardar_json
+from storage import inicializar_db, comprobar_notificacion_enviada, guardar_notificacion_enviada
 
 def main():
     # 1. Cargar datos iniciales
-    enviados = importar_json()
+    inicializar_db()
     mapa_tiendas = obtener_tiendas()
     juegos = obtener_juegos_gratis()
 
@@ -11,18 +11,19 @@ def main():
     for juego in juegos:
         oferta_id = juego["dealID"]
 
-        if oferta_id in enviados:
+        if comprobar_notificacion_enviada(oferta_id):
             continue
 
         # Si no está enviado, obtener la tienda y mandar
         tienda_id = juego["storeID"]
         nombre_tienda = mapa_tiendas.get(tienda_id, "Tienda desconocida")
-
         enviar_discord(juego, nombre_tienda)
 
+        precio_original = float(juego["normalPrice"])
+        precio_oferta = float(juego["salePrice"])
+
         # Guardar en el historial
-        enviados.append(oferta_id)
-        guardar_json(enviados)
+        guardar_notificacion_enviada(juego["dealID"], juego["title"], nombre_tienda, precio_original, precio_oferta)
         print(f"¡{juego['title']} enviado a Discord y registrado!")
 
 if __name__ == "__main__":

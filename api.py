@@ -30,5 +30,7 @@ def enviar_discord(juego, nombre_tienda):
             }
         ]
     }
-
-    requests.post(WEBHOOK_DISCORD, json=mensaje_discord)
+    if not WEBHOOK_DISCORD:
+        print("Error: La constante WEBHOOK_DISCORD no está configurada")
+    else:
+        requests.post(WEBHOOK_DISCORD, json=mensaje_discord)

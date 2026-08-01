@@ -8,7 +8,7 @@ load_dotenv()
 URL_DESCUENTOS = "https://www.cheapshark.com/api/1.0/deals"
 URL_TIENDAS = "https://www.cheapshark.com/api/1.0/stores"
 WEBHOOK_DISCORD = os.getenv("WEBHOOK_DISCORD")
-DB = "db.json"
+DB_FILE = "database.db"
 # Cabecera para la peticion a la API
 CABECERA = { "User-Agent": "DealGameAlert Script" }
 # Parametros de busqueda
