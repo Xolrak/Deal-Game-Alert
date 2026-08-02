@@ -1,6 +1,6 @@
 import sqlite3
 from pathlib import Path
-from config import DB_FILE
+from src.config import DB_FILE
 
 def inicializar_db():
     """

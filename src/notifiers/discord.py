@@ -1,6 +1,5 @@
-# discord_notifier.py
 import requests
-from config import WEBHOOK_DISCORD
+from src.config import WEBHOOK_DISCORD
 
 def enviar_discord(juego, nombre_tienda):
     titulo = juego["title"]

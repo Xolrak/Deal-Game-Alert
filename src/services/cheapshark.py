@@ -1,5 +1,5 @@
 import requests
-from config import URL_TIENDAS, CABECERA, URL_DESCUENTOS, PARAMETROS
+from src.config import URL_TIENDAS, CABECERA, URL_DESCUENTOS, PARAMETROS
 
 def obtener_tiendas():
     respuesta_tiendas = requests.get(URL_TIENDAS, headers=CABECERA)
