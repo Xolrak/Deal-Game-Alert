@@ -1,5 +1,6 @@
-from api import obtener_tiendas, obtener_juegos_gratis, enviar_discord
+from api import obtener_tiendas, obtener_juegos_gratis
 from storage import inicializar_db, comprobar_notificacion_enviada, guardar_notificacion_enviada
+from discord_notifier import enviar_discord
 
 def main():
     # 1. Cargar datos iniciales
