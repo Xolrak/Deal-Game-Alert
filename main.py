@@ -47,7 +47,7 @@ def main():
         nuevas_ofertas += 1
 
     if nuevas_ofertas == 0:
-        print("ℹNo hay nuevas ofertas para notificar.")
+        print("No hay nuevas ofertas para notificar.")
 
 if __name__ == "__main__":
     main()
